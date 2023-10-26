@@ -30,11 +30,20 @@ const App = () => {
   // const updateEmailAddress = () => {
   //   setEmail("info@ihunar.com")
   // }
+  //   if(){
+
+  //   }
+  //  else if(){
+
+  //   }
+  //  else{
+
+  //   }
   return (
     <div>
-      <button onClick={() => setActivePage("home")}>Home</button>
+      {/* <button onClick={() => setActivePage("home")}>Home</button>
       <button onClick={() => setActivePage("about")}>About</button>
-      <button onClick={() => setActivePage("contact")}>Contact</button>
+      <button onClick={() => setActivePage("contact")}>Contact</button> */}
 
       {/* <p>{name}</p>
       <button onClick={() => setName("iHunar")}>Update</button>
@@ -46,14 +55,16 @@ const App = () => {
       {/* <button onClick={() => alert("iSkillers")}>Update</button>
       <button onClick={updateData}>Update Data</button>
       <button onClick={() => deleteUser("45-er-78")}>Delete User</button> */}
-      {activePage === "home" && <h1 id='home-heading'>Home Page</h1>}
+      {/* {activePage === "home" && <h1 id='home-heading'>Home Page</h1>}
       {activePage === "about" && <About />}
-      {activePage === "contact" && <Contact />}
+      {activePage === "contact" && <Contact />} */}
+<About />
+      {/* {activePage === "home" ? <h1 id='home-heading'>Home Page</h1> : activePage === "about" ? <About /> :  <Contact />} */}
+      {/* <hr />
       <hr />
       <hr />
-      <hr />
-      <hr />
-{/* ? */}
+      <hr /> */}
+      {/* ? */}
     </div>
   )
 }
