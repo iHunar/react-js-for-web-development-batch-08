@@ -2,3 +2,13 @@
   padding: 0px;
   margin: 0px;
 }
+
+
+button{
+  /* background-color: gray; */
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-right: 5px;
+  border: 0px solid red;
+}

@@ -1,10 +1,8 @@
 import React from "react";
-import Router from "./config/Router";
+import Router from "./config/router";
+import './styles/navbar.css'
+import './styles/footer.css'
 const App = () => {
-  return (
-    <div>
-      <Router />
-    </div>
-  )
+  return <Router />
 }
 export default App
