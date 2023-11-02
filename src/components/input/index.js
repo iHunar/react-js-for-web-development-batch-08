@@ -9,11 +9,13 @@ import React from "react";
 //     )
 // }
 
-const Input = ({ title, type, placeholder }) => {
+const Input = ({ title, type, placeholder, value, onChange, name, message }) => {
     return (
         <div>
             <p>{title}</p>
-            <input type={type} placeholder={placeholder} />
+            <input type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} />
+            <p style={{ color: "red" }}>{message}</p>
+
         </div>
     )
 }
