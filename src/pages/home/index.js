@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Footer, Card } from "../../components";
+import { Card, Navbar } from "../../components";
+import Layout from "../../layout";
 const Home = () => {
     const users = [
         {
@@ -29,8 +30,7 @@ const Home = () => {
         },
     ];
     return (
-        <div>
-            <Navbar />
+        <Layout username="User 1">
             <h1>Home page</h1>
             <div>
                 {/* 1 */}
@@ -49,8 +49,7 @@ const Home = () => {
                 {/* 3 */}
                 <Card data={users} />
             </div>
-            <Footer />
-        </div>
+        </Layout >
     );
 };
 

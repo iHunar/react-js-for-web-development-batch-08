@@ -1,14 +1,14 @@
 import React from "react";
 import { Navbar } from "../../components";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import Layout from "../../layout";
 const NotFound = () => {
     const navigate = useNavigate()
     return (
-        <div>
-            <Navbar />
+        <Layout footerHide={true}>
             <h1>Page Not Found</h1>
             <button onClick={() => navigate('/')}>Back to Home Page</button>
-        </div>
+        </Layout>
     )
 }
 export default NotFound

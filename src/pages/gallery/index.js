@@ -1,12 +1,12 @@
 import React from "react";
-import { Navbar, Footer } from "../../components";
+import { List } from "../../components";
+import Layout from "../../layout";
 const Gallery = () => {
     return (
-        <div>
-            <Navbar />
+        <Layout username="User 4">
             <h1>Gallery page</h1>
-            <Footer />
-        </div>
+            <List />
+        </Layout>
     )
 }
 export default Gallery
