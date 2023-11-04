@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillWarning ,AiFillCheckCircle} from "react-icons/ai";
+import { AiFillWarning, AiFillCheckCircle } from "react-icons/ai";
 // const Input = (props) => {
 //     console.log("Input props >>>>, ", props)
 //     return (
@@ -10,16 +10,43 @@ import { AiFillWarning ,AiFillCheckCircle} from "react-icons/ai";
 //     )
 // }
 
-const Input = ({ title, type, placeholder, value, onChange, name, message }) => {
+const Input = ({
+    title,
+    type,
+    placeholder,
+    value,
+    onChange,
+    name,
+    message,
+    icon,
+    isDone,
+    vStart,
+}) => {
+    console.log("vStart", vStart);
+    console.log("isDone", isDone);
     return (
         <div>
             <p>{title}</p>
-            <input type={type} value={value} name={name} placeholder={placeholder} onChange={onChange} />
-            <AiFillWarning color="green" size={10} />
-            <AiFillCheckCircle color="red" size={50}/>
+            <input
+                type={type}
+                value={value}
+                name={name}
+                placeholder={placeholder}
+                onChange={onChange}
+            />
+            {icon && (
+                <>
+                    {vStart ? (
+                        isDone ? (
+                            <AiFillCheckCircle color="green" />
+                        ) : (
+                            <AiFillWarning color="red" />
+                        )
+                    ) : null}
+                </>
+            )}
             <p style={{ color: "red" }}>{message}</p>
-
         </div>
-    )
-}
-export default Input
+    );
+};
+export default Input;
