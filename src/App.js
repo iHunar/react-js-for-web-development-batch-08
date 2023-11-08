@@ -1,8 +1,49 @@
+// import React,{useState} from "react";
+// const App = () => {
+// const [name,setName] = useState("")
+//   return <h1>fdf {name}</h1>
+// }
+// export default App
+
 import React from "react";
-import Router from "./config/router";
-import './styles/navbar.css'
-import './styles/footer.css'
-const App = () => {
-  return <Router />
+import { Button } from "./component";
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: "iHunar 123", show: false };
+  }
+  UpdatValue = () => {
+    this.setState({ name: "iHunar" })
+  }
+  render() {
+    let { name, show } = this.state
+    return (
+      <div>
+        {this.state.show &&
+          <h2>{this.state.name === "" ? "iSKillers" : this.state.name}</h2>}
+        <button onClick={() => this.setState({ show: !this.state.show })}>Show</button>
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={(value) => this.setState({ name: value.target.value })}
+          placeholder="Name"
+        />
+
+        <hr />
+        {/* {show &&
+          <h2>{name === "" ? "iSKillers" : name}</h2>}
+        <button onClick={()=> this.setState({show:!show})}>Show</button>
+        <input
+          type="text"
+          value={name}
+          onChange={(value) => this.setState({ name: value.target.value })}
+          placeholder="Name"
+        /> */}
+
+        <button onClick={this.UpdatValue}>Update</button>
+        <Button title="Log Out" onClick={()=> alert("Log Out")}/>
+      </div>
+    );
+  }
 }
-export default App
+export default App;
