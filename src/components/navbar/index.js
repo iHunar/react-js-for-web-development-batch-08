@@ -4,7 +4,6 @@ const Navbar = ({ username }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname
-    console.log("username", username)
     return (
         <div className="topnav">
             <a className={path === "/" && "active"} onClick={() => navigate("/")}>Home</a>

@@ -22,8 +22,6 @@ const Input = ({
     isDone,
     vStart,
 }) => {
-    console.log("vStart", vStart);
-    console.log("isDone", isDone);
     return (
         <div>
             <p>{title}</p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Input, Button } from "../../components";
 import Layout from "../../layout";
 const AboutUs = () => {
