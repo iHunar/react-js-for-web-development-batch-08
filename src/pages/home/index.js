@@ -30,7 +30,7 @@ const Home = () => {
         },
     ];
     return (
-        <Layout username="User 1">
+        <Layout username="User 1" bgColor="blue">
             <h1>Home page</h1>
             <div>
                 {/* 1 */}
