@@ -6,7 +6,7 @@
 // export default App
 
 import React from "react";
-import { Button } from "./component";
+import { Button, Card } from "./component";
 class App extends React.Component {
   constructor() {
     super();
@@ -41,7 +41,10 @@ class App extends React.Component {
         /> */}
 
         <button onClick={this.UpdatValue}>Update</button>
-        <Button title="Log Out" onClick={()=> alert("Log Out")}/>
+        <Button title="Log Out" onClick={() => alert("Log Out")} />
+
+        <hr />
+        <Card bgColor="blue" />
       </div>
     );
   }
