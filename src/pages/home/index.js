@@ -1,57 +1,108 @@
-import React from "react";
-import { Card ,BasicRating} from "../../components";
+import React, { useEffect, useState } from "react";
+import { Card, BasicRating,Button } from "../../components";
 import Layout from "../../layout";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import firebase from "../../config/firebase";
 const Home = () => {
-    const users = [
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
+  const auth = getAuth();
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  console.log(">>>>>>>>>>>>>>photos", photos);
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/photos")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setPhotos(json);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
-        {
-            name: "User",
-            email: "info@gmail.com",
-        },
-    ];
-    return (
-        <Layout username="User 1" bgColor="blue">
-            <h1>Home page</h1>
-            <div>
-                {/* 1 */}
-                {/* {users.map((item, index) => {
+  console.log(">>>>>>>>>>>>>>photos", photos);
+  const users = [
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+    {
+      name: "User",
+      email: "info@gmail.com",
+    },
+  ];
+
+  const signUp = () => {
+    setLoading(true)
+    createUserWithEmailAndPassword(auth, "emdsdail@dsdsdsgmail.com", "password")
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log("user", user);
+        setLoading(false)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("errorMessage", errorMessage);
+        setLoading(false)
+      });
+  };
+  return (
+    <Layout username="User 1" bgColor="blue">
+      <h1>Home page</h1>
+      {/* 1 */}
+      {/* {users.map((item, index) => {
           return (
            <Card key={index} name={item.name} index={index} email={item.email}/>
           );
         })} */}
-                {/* 2 */}
-                {/* {users.map((item, index) => {
+      {/* 2 */}
+      {/* {users.map((item, index) => {
           return (
            <Card key={index}  index={index} item={item}/>
           );
         })} */}
 
-                {/* 3 */}
-                <BasicRating />
-                <Card data={users} />
-            </div>
-        </Layout >
-    );
+      {/* 3 */}
+      {/* <BasicRating /> */}
+      {/* <Card data={users} /> */}
+
+      {/* {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            {photos?.map((item, index) => {
+              return (
+                <div key={index}>
+                  <p>ID: {item.id}</p>
+                  <p>{item.title}</p>
+                  <img src={item.url} />
+                </div>
+              );
+            })}
+          </div>
+        )} */}
+
+      <hr />
+      <h1>Sign Up</h1>
+      <button onClick={signUp}>{loading ? "Loading...." : "Sign Up"}</button>
+      <Button title="Sign Up" onClick={signUp} loading={loading}/>
+    </Layout>
+  );
 };
 
 export default Home;
