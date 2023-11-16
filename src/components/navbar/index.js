@@ -15,6 +15,8 @@ const Navbar = ({ username, propsBgColor }) => {
             <h1 style={{ backgroundColor: bgColor }}>Navbar</h1>
             <button onClick={() => setBgColor("red")}>Update Color</button>
             <a className={path === "/" && "active"} onClick={() => navigate("/")}>Home</a>
+            <a className={path === "/blog" && "active"} onClick={() => navigate("/blog")}>Blog</a>
+            <a className={path === "/create-blog" && "active"} onClick={() => navigate("/create-blog")}>Create Blog</a>
             <a className={path === "/about-us" && "active"} onClick={() => navigate("/about-us")}>About Us</a>
             <a className={path === "/contact-us" && "active"} onClick={() => navigate("/contact-us")}>Contact Us</a>
             <a className={path === "/gallery" && "active"} onClick={() => navigate("/gallery")}>Gallery</a>
