@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  onSnapshot,
+} from "firebase/firestore";
+import firebase from "../../config/firebase";
 const Blog = () => {
+  const db = getFirestore(firebase);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [blog, setBlog] = useState([]);
+  useEffect(() => {
+    const q = query(collection(db, "blog"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const newBlog = [];
+      querySnapshot.forEach((doc) => {
+        newBlog.push(doc.data());
+      });
+      setBlog([...newBlog]);
+      setLoading(false);
+    });
+  }, []);
   const Posts = [
     {
       title: "Kakar links trade ties with India to Kashmir issue resolution",
@@ -25,23 +47,44 @@ const Blog = () => {
   return (
     <div>
       <h1>Blog</h1>
-      {Posts.map((item, index) => {
+      {/* {Posts.map((item, index) => {
         return (
           <div key={index} className="card">
             <h3>{item.title}</h3>
             <img src={item.image} style={{ width: "100%" }} />
             <p>{item.des.slice(0, 100)} ...</p>
-            {/* <button
+            <button
               onClick={() =>
                 navigate("/blog-details", { state: { data:item} })
               }
             >
               See more
-            </button> */}
-            <button onClick={() => navigate(`/blog-details/${item.title}`)}>See more</button>
+            </button>
+            <button onClick={() => navigate(`/blog-details/${item.title}`)}>
+              See more
+            </button>
           </div>
         );
-      })}
+      })} */}
+
+      {loading ? (
+        <p>Loading ...</p>
+      ) : (
+        <div>
+          {blog.map((item, index) => {
+            return (
+              <div key={index} className="card">
+                <h3>{item.title}</h3>
+                <img src={item.fileUrl} style={{ width: "100%" }} />
+                <p>{item.details.slice(0, 100)} ...</p>
+                <button onClick={() => navigate(`/blog-details/${item.id}`)}>
+                  See more
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
