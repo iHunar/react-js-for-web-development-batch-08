@@ -6,22 +6,25 @@
 // export default App
 
 import React from "react";
-import { Button, Card } from "./component";
+import { Button, Card, Testing } from "./component";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { name: "iHunar 123", show: false };
+    this.state = { name: "iHunar 123", show: true };
   }
   UpdatValue = () => {
-    this.setState({ name: "iHunar" })
-  }
+    this.setState({ name: "iHunar" });
+  };
   render() {
-    let { name, show } = this.state
+    let { name, show } = this.state;
     return (
       <div>
-        {this.state.show &&
-          <h2>{this.state.name === "" ? "iSKillers" : this.state.name}</h2>}
-        <button onClick={() => this.setState({ show: !this.state.show })}>Show</button>
+        {this.state.show && (
+          <h2>{this.state.name === "" ? "iSKillers" : this.state.name}</h2>
+        )}
+        <button onClick={() => this.setState({ show: !this.state.show })}>
+          Show
+        </button>
         <input
           type="text"
           value={this.state.name}
@@ -45,6 +48,10 @@ class App extends React.Component {
 
         <hr />
         <Card bgColor="blue" />
+
+        <hr />
+        {this.state.show && <Testing />}
+        <button onClick={() => this.setState({ show: !this.state.show })}>Hide</button>
       </div>
     );
   }
