@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import List from "../../components/List";
 const Contact = () => {
   const { fullName,isDark } = useSelector((state) => state.useReducer);
+  // name email phone
   return (
     <div>
       <h1  style={{

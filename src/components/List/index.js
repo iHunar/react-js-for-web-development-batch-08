@@ -4,7 +4,8 @@ import { setFullName } from "../../redux/action";
 const List = () => {
   const dispatch = useDispatch();
   const [phone,setPhone] = useState("Fsdfs")
-  const { fullName, isDark } = useSelector((state) => state.useReducer);
+  const { fullName, isDark ,users} = useSelector((state) => state.useReducer);
+  console.log(">>>>>>>>>>>>>>>>>>>>users list",users)
   return (
     <div>
       <h1

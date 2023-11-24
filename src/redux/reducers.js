@@ -2,10 +2,7 @@ import { FULL_NAME, IS_DARK } from "./action";
 const INITIAL_STATE = {
   fullName: "iSkillers",
   isDark: true,
-//   obj:{},
-//   arr:[],
-//   aryOfObj:[{}],
-//   num:54
+  users: [],
 };
 
 function useReducer(state = INITIAL_STATE, actoin) {
